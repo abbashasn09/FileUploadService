@@ -1,0 +1,30 @@
+pipeline {
+    agent any 
+    stages {
+        stage('SCM') { 
+            steps {
+			git url: 'https://github.com/abbashasn09/FileUploadService.git'
+			echo 'Retrieve GIT code here'
+            }
+        }
+        stage('Build') { 
+            steps {
+			//bat 'set'
+			bat 'PATH'
+			echo "Build Successful"
+            }
+        }
+        stage('Test') { 
+            steps {
+			bat 'bash scripts/welcome.sh'
+			 echo "Welcome to AWS Training!"
+            }
+        }
+		stage('Deploy') { 
+            steps{
+			echo 'Deployment Completed Successfully'
+			}
+		}	
+	
+    }
+}
